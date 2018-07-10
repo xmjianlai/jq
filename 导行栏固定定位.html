@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    img {
+      vertical-align: top;
+    }
+
+    .main {
+      margin: 0 auto;
+      width: 1000px;
+      padding-top: 10px;
+    }
+
+    .fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
+  <script src='jquery-1.12.4.js'></script>
+  <script>
+    $(function(){
+//      需求:浏览器上下滑动导航栏跟着动
+      $(window).scroll(function(){
+//        获取浏览器滚动的距离
+        var i=$(window).scrollTop();
+//        获取头部的高度
+        var height=$('#topPart').outerHeight();
+        if(i>=height){
+          $('#navBar').addClass('fixed')
+//          防止导航栏脱标后闪烁
+          $('#mainPart').css('marginTop',$('#navBar').height())
+        }else{
+          $('#navBar').removeClass('fixed')
+          $('#mainPart').css('marginTop',0)
+        }
+
+      })
+    })
+  </script>
+</head>
+<body>
+<div class="top" id="topPart">
+  <img src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+  <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+  <img src="images/main.png" alt=""/>
+</div>
+</body>
+</html>

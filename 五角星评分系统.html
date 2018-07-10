@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .comment {
+      font-size: 40px;
+      color: blue;
+    }
+    .comment li {
+      float: left;
+    }
+    ul {
+      list-style: none;
+    }
+  </style>
+  <script src='jquery.js'></script>
+  <script>
+    $(function(){
+      var wjx_k = "☆";
+      var wjx_s = "★";
+      $('li').on('mouseenter',function(){
+
+        $(this).text(wjx_s).prevAll().text(wjx_s).end().nextAll().text(wjx_k)
+      })
+
+//      点击的时候添加一个类名
+      $('li').on('click',function(){
+        $(this).addClass('active').siblings().removeClass('active');
+      })
+
+
+      $('ul').on('mouseleave',function(){
+        $(this).children().text(wjx_k);
+        $(this).find('.active').text(wjx_s).prevAll().text(wjx_s);
+      })
+    })
+  </script>
+</head>
+<body>
+<ul class="comment">
+  <li>☆</li>
+  <li>☆</li>
+  <li>☆</li>
+  <li>☆</li>
+  <li>☆</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jquery.lazyload.js"></script>
+</head>
+<body>
+<img class='lazy' data-original="./imgs/big01.jpg" width='765' height='574'>
+<img class='lazy' data-original="./imgs/big02.jpg" width='765' height='574'>
+<img class='lazy' data-original="./imgs/big03.jpg" width='765' height='574'>
+<img class='lazy' data-original="./imgs/big04.jpg" width='765' height='574'>
+<img class='lazy' data-original="./imgs/big05.jpg" width='765' height='574'>
+<img class='lazy' data-original="./imgs/big06.jpg" width='765' height='574'>
+<script>
+  $('img.lazy').lazyload({
+    effect: "fadeIn",
+//    event:'click',
+    placeholder : "it.jpg",
+  });
+
+</script>
+</body>
+</html>
